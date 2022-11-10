@@ -32,6 +32,7 @@ public class StudentController {
 		return "list-students";
 	}
 
+	//send an empty student model to be populated by user
 	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model model2) {
 
@@ -41,6 +42,10 @@ public class StudentController {
 		return "student-form";
 	}
 
+	/*
+	 * send a Student model with prepopulated data
+	 * to be updated by user
+	 */
 	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("studentId") int id, Model model3) {
 
@@ -57,6 +62,7 @@ public class StudentController {
 
 		Student student3;
 
+		//existing student record to be updated
 		if (id != 0) {
 			student3 = studentServ.findById(id);
 
@@ -64,7 +70,9 @@ public class StudentController {
 			student3.setLastName(lastName);
 			student3.setCourse(course);
 			student3.setCountry(country);
-		} else {
+		}
+		//new student record to be created
+		else {
 			student3 = new Student(firstName, lastName, course, country);
 		}
 
@@ -81,6 +89,7 @@ public class StudentController {
 		return "redirect:/students/list";
 	}
 
+	//Access Denied Page
 	@RequestMapping(value = "/403")
 	public ModelAndView accessDenied(Principal user) {
 

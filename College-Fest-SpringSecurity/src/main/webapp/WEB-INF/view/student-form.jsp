@@ -17,14 +17,13 @@
 
 <body>
 	<header class="header">
-		<h1>Student Debate Records</h1>
-		<hr color="#009879">
+		<h1>Student Register</h1>
 	</header>
 	
 	<!-- custom div class: "registration-form" -->
 	<div class="registration-form">
 		<!-- custom header class: "form-header" -->
-		<p class="form-header">Student details form</p>
+		<p class="form-header">Enter Student Details</p>
 		<form action="/studentcollegefest/students/save" method="POST">
 			<!-- Add hidden form field to handle update -->
 			<input type="hidden" name="id" value="${student.id}" />
@@ -33,23 +32,23 @@
 			the fields can populated existing values to be updated else have 
 			a placeholder text in their place-->
 			<!-- This is a required field -->
-			<div>
-				<p>First Name</p>
-				<input type="text" name="firstName" value="${student.firstName}" placeholder="Eg: John" required>
-			</div>
-			<div>
-				<p>Last Name</p>
-				<input type="text" name="lastName" value="${student.lastName}" placeholder="Eg: Smith" required>
-			</div>
-			<!-- This is a required field -->
-			<div>
-				<p>Course</p>
-				<input type="text" name="course" value="${student.course}" placeholder="Eg: IT" required>
-			</div>
-			<div>
-				<p>Country</p>
-				<input type="text" name="country" value="${student.country}" placeholder="Eg: India">
-			</div>
+				<div>
+					<p>First Name</p>
+					<input type="text" name="firstName" value="${student.firstName}" placeholder="Eg: John" required>
+				</div>
+				<div>
+					<p>Last Name</p>
+					<input type="text" name="lastName" value="${student.lastName}" placeholder="Eg: Smith" required>
+				</div>
+				<!-- This is a required field -->
+				<div>
+					<p>Course</p>
+					<input type="text" name="course" value="${student.course}" placeholder="Eg: IT" required>
+				</div>
+				<div>
+					<p>Country</p>
+					<input type="text" name="country" value="${student.country}" placeholder="Eg: India">
+				</div>
 			<!-- Button of type="submit" -->
 			<button type="submit" class="save-button">Submit</button>
 		</form>

@@ -10,7 +10,9 @@ import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.greatlearning.collegefest.model.Role;
+import com.greatlearning.collegefest.model.Student;
 import com.greatlearning.collegefest.model.User;
+import com.greatlearning.collegefest.repository.StudentRepository;
 import com.greatlearning.collegefest.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -19,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BootstrapAppData {
 
+	private final StudentRepository studentRepository;
 	private final UserRepository userRepository;
 	
 	@Bean
@@ -26,6 +29,10 @@ public class BootstrapAppData {
 		return new BCryptPasswordEncoder();
 	}
 
+	/*
+	 * Bootstrapping sample student, user and role records
+	 * Encode password before saving
+	 */
 	
 	@EventListener(ApplicationReadyEvent.class)
 	public void insertUsers(ApplicationReadyEvent event) {
@@ -44,5 +51,11 @@ public class BootstrapAppData {
 		User user2 = User.builder().username("ADMIN").password(passwordEncoder().encode("ADMIN"))
 				.roles(roles2).build();
 		this.userRepository.save(user2);
+		
+		Student student1 = new Student("Bhoopesh", "Agarwal", "IT", "India");
+		Student student2 = new Student("Ankit", "Garg", "Mech", "USA");
+		
+		this.studentRepository.save(student1);
+		this.studentRepository.save(student2);
 	}
 }

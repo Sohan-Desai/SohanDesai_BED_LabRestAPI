@@ -14,8 +14,7 @@
 
 <body>
 	<header class="header">
-		<h1>Student Debate Records</h1>
-		<hr color="#009879">
+		<h1>Student Register</h1>
 	</header>
 	
 	<div class="block1">

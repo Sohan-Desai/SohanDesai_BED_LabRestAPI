@@ -16,6 +16,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	/*
+	 * returns a MyUserDetails object by passing it a user fetched by username
+	 * entered
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
