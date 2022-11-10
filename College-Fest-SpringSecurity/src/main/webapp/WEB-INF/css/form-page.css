@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*Google fonts -> Montserrat*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap');
 
 *, *::before, *::after {
@@ -8,21 +9,26 @@
 	box-sizing: border-box;
 }
 
+:root{
+    font-size: 62.5%;
+}
+
 body {
 	font-family: Montserrat, Sans Serif;
 	color: #4f546c;
-	font-size: 15px;
+	font-size: 150%;
 	background: linear-gradient(to right, #fefefe, #ebedee 75%);
 }
 
-.header h1 {
-	font-size: 50px;
-	font-weight: 600;
+header h1 {
+	font-size: 5rem;
+	font-weight: 700;
+	letter-spacing: 0.15rem;
 	text-align: center;
 	background-color: #009879;
 	color: #fefefe;
-	padding: 10px 0px;
-	margin-bottom: 20px;
+	padding: 1rem 0;
+	margin-bottom: 2rem;
 }
 
 .registration-form {
@@ -31,13 +37,11 @@ body {
 	left: 50%;
 	top: 55%;
 	transform: translate(-50%, -50%);
-	justify-content: center;
-	align-items: center;
-	width: 400px;
+	width: 30%;
 }
 
 .form-header {
-	font-size: 40px;
+	font-size: 4rem;
 	font-style: italic;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -49,7 +53,7 @@ body {
 	text-decoration: none;
 	font-style: italic;
 	color: #2962ff;
-	margin-bottom: 10px;
+	margin-bottom: 1rem;
 }
 
 .registration-form a:hover {
@@ -57,30 +61,31 @@ body {
 }
 
 .registration-form p {
-	font-size: 20px;
+	font-size: 2rem;
 	margin: 15px 0;
 }
 
 .registration-form input {
-	font-size: 16px;
-	padding: 15px 10px;
+	font-size: 1.6rem;
+	padding: 1.5rem 1rem;
 	width: 100%;
 	border: none;
 	outline: none;
-	border-radius: 5px;
+	border-radius: 0.5rem;
 	box-shadow: inset 10px 10px 15px #c7c4c4, inset -10px -10px 15px #fff;
 }
 
 .save-button{
-	font-size: 18px;
+	display: inline-block;
+	font-size: 1.8rem;
 	font-weight: bold;
 	font-style:italic;
-	margin: 20px 0;
+	margin: 2rem 0;
 	width: 50%;
-	padding: 10px 15px;
+	padding: 1rem 1.5rem;
 	border: none;
 	outline: none;
-	border-radius: 5px;
+	border-radius: 0.5rem;
 	background-color: #009879;
 	color: #fff;
 }

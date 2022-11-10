@@ -20,9 +20,9 @@ import com.greatlearning.collegefest.service.StudentService;
 public class StudentController {
 
 	@Autowired
-	StudentService studentServ;
+	private StudentService studentServ;
 
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	public String listStudents(Model model1) {
 
 		List<Student> students = studentServ.findAll();
@@ -32,7 +32,7 @@ public class StudentController {
 		return "list-students";
 	}
 
-	@GetMapping("/showFormForAdd")
+	@RequestMapping("/showFormForAdd")
 	public String showFormForAdd(Model model2) {
 
 		Student student1 = new Student();
@@ -41,7 +41,7 @@ public class StudentController {
 		return "student-form";
 	}
 
-	@GetMapping("/showFormForUpdate")
+	@RequestMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("studentId") int id, Model model3) {
 
 		Student student2 = studentServ.findById(id);
@@ -80,20 +80,19 @@ public class StudentController {
 
 		return "redirect:/students/list";
 	}
-	
-	@RequestMapping(value= "/403")
-	public ModelAndView accessDenied (Principal user) {
-		
+
+	@RequestMapping(value = "/403")
+	public ModelAndView accessDenied(Principal user) {
+
 		ModelAndView model = new ModelAndView();
-		
-		if(user!=null) {
-			model.addObject("msg", "Hi " +user.getName()+ ", it seems you are not authorized to access this page :/");
-		}
-		else {
-			model.addObject("msg", "You are not authorized to access this page!");
+
+		if (user != null) {
+			model.addObject("msg", "Hi " + user.getName() + ", it seems you are not authorized to access this page :/");
+		} else {
+			model.addObject("msg", "Please login to access this page!");
 		}
 		model.setViewName("403");
-		
+
 		return model;
 	}
 }

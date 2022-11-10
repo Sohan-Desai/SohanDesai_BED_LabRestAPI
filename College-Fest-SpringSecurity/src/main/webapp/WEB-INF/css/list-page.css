@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*Google fonts -> Montserrat*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap');
 
 *, *::before, *::after {
@@ -8,21 +9,26 @@
 	box-sizing: border-box;
 }
 
+:root{
+	font-size: 62.5%;
+}
+
 body {
 	font-family: Montserrat, Sans Serif;
+	font-size: 140%;
 	color: #4f546c;
-	font-size: 15px;
 	background: linear-gradient(to right, #fefefe, #ebedee 75%);
 }
 
-.header h1 {
-	font-size: 50px;
-	font-weight: 600;
+header h1 {
+	font-size: 5rem;
+	font-weight: 700;
+	letter-spacing: 0.15rem;
 	text-align: center;
 	background-color: #009879;
 	color: #fefefe;
-	padding: 10px 0px;
-	margin-bottom: 20px;
+	padding: 1rem 0;
+	margin-bottom: 2rem;
 }
 
 .block1 {
@@ -30,15 +36,22 @@ body {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	min-width:50%;
+}
+
+.button-bar{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 .custom-table {
 	border-collapse: collapse;
-	margin: 0 0;
-	min-width: 800px;
+	margin: auto;
+	width: 100%;
 	box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.55), 10px 10px 15px
 		rgba(70, 70, 70, 0.12);
-	border-radius: 10px;
+	border-radius: 1em;
 	overflow: hidden;
 	background-color: #fefefe;
 	text-align: left;
@@ -53,8 +66,8 @@ body {
 	padding: 1rem 2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
-	font-size: 0.7rem;
-	font-weight: 900;
+	font-size: 1rem;
+	font-weight: 700;
 }
 
 .custom-table td {
@@ -62,7 +75,7 @@ body {
 }
 
 .custom-table tbody tr {
-	transition: all 0.2s ease-in;
+	transition: all 0.3s ease-in;
 	cursor: pointer;
 }
 
@@ -89,19 +102,16 @@ body {
 
 .addStudent-button {
 	display: inline-block;
-	font-size: 18px;
+	font-size: 1.8rem;
 	font-weight: bold;
-	margin: 20px 0;
-	padding: 10px 15px;
+	font-style:italic;
+	margin: 2rem 0;
+	padding: 1rem 1.5rem;
 	border: none;
 	outline: none;
-	border-radius: 5px;
+	border-radius: 0.5rem;
 	background-color: #009879;
 	color: #fff;
-}
-
-.block1 .logout-button {
-	margin: 20px 30px;
 }
 
 .addStudent-button:hover {
@@ -121,17 +131,17 @@ a {
 
 .update-button {
 	display: inline-block;
-	margin: 5px 10px;
+	margin: 0.5rem 1rem;
 	font-weight: 200;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	color: #0277bd;
 }
 
 .delete-button {
 	display: inline-block;
-	margin: 5px 10px;
+	margin: 0.5rem 1rem;
 	font-weight: 200;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	color: crimson;
 }
 

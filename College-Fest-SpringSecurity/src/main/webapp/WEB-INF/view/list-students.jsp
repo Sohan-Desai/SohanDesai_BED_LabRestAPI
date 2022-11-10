@@ -14,17 +14,18 @@
 
 <body>
 	<header class="header">
-		<h1>Student Register</h1>
+		<h1>Student Debate Records</h1>
 		<hr color="#009879">
 	</header>
 	
 	<div class="block1">
-		<!-- Add a button "Add Student" -->
-		<a href="/studentcollegefest/students/showFormForAdd"
-			class="addStudent-button">Add Student</a>
-		<a href="/studentcollegefest/logout"
-			class="addStudent-button logout-button">Logout</a>
-
+		<div class="button-bar">
+			<!-- Add a button "Add Student" -->
+			<a href="/studentcollegefest/students/showFormForAdd"
+				class="addStudent-button">Add Student</a>
+			<a href="/studentcollegefest/logout"
+				class="addStudent-button logout-button">Logout</a>
+		</div>
 		<!-- custom table class -->
 		<table class="custom-table">
 			<thead>

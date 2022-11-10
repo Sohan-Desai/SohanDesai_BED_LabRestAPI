@@ -7,20 +7,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name="roles")
+@Table(name = "roles")
 public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="role_id")
+	@Column(name = "role_id")
 	private int id;
-	
-	@Column(name="role_name")
+
+	@Column(name = "role_name")
 	private String name;
 }

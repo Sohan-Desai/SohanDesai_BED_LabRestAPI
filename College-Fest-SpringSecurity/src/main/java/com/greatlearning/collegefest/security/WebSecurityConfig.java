@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
+	public BCryptPasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
@@ -32,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
 		authProvider.setUserDetailsService(userDetailsService());
-		authProvider.setPasswordEncoder(passwordEncoder());
+		authProvider.setPasswordEncoder(getPasswordEncoder());
 
 		return authProvider;
 	}
@@ -42,21 +43,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		auth.authenticationProvider(authenticationProvider());
 	}
+	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/h2-console/**");
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
+		
 		http.authorizeRequests()
+		.antMatchers("/students/save", "/students/showFormForAdd", "/students/403").hasAnyAuthority("USER", "ADMIN")
 		.antMatchers("/students/showFormForUpdate", "/students/delete").hasAuthority("ADMIN")
-		.antMatchers("/", "/students/list", "/students/showFormForAdd", "/students/403").hasAnyAuthority("USER", "ADMIN")
+		.antMatchers("/").anonymous()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin().loginProcessingUrl("/login").successForwardUrl("/students/list").permitAll()
+		.formLogin().loginProcessingUrl("/login").defaultSuccessUrl("/students/list", true).permitAll()
 		.and()
 		.logout().logoutSuccessUrl("/login").permitAll()
 		.and()
 		.exceptionHandling().accessDeniedPage("/students/403")
-		.and().csrf().and().cors().disable();
-		
+		.and()
+		.cors().and().csrf().disable();
 	}
 }
