@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.greatlearning.collegefest.dao.StudentRepository;
 import com.greatlearning.collegefest.model.Student;
-import com.greatlearning.collegefest.repository.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {

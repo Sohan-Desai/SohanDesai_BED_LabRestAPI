@@ -9,11 +9,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.greatlearning.collegefest.dao.StudentRepository;
+import com.greatlearning.collegefest.dao.UserRepository;
 import com.greatlearning.collegefest.model.Role;
 import com.greatlearning.collegefest.model.Student;
 import com.greatlearning.collegefest.model.User;
-import com.greatlearning.collegefest.repository.StudentRepository;
-import com.greatlearning.collegefest.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

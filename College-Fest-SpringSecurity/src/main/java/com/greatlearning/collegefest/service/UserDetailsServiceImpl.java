@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.greatlearning.collegefest.dao.UserRepository;
 import com.greatlearning.collegefest.model.User;
-import com.greatlearning.collegefest.repository.UserRepository;
 import com.greatlearning.collegefest.security.MyUserDetails;
 
 @Service
